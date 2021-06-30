@@ -72,9 +72,8 @@ let beGone = me.skills.pop()
     Write a function called "dice"; it should randomize an integer number between 1 and 6.
 */
 
-function Ex1(){
-  let dice = Math.floor(Math.random()*6) + 1
-  return dice
+function dice(){
+  return Math.floor(Math.random()*6) + 1
 }
 
 // console.log(Ex1())
@@ -165,6 +164,12 @@ function whatDayIsIt(){
 
 // console.log(whatDayIsIt())
 
+function whatDayIsIt(){
+  let days = ["Sunday", "Monday", "Thursday", "Wendsday", "Tuesday", "Saturday"]
+  return days[(new Date()).getDay()]
+}
+
+
 /* Ex.8
     Write a function called "rollTheDices" which receives a number as a parameter.
     It should invoke the dice() function defined in Ex1 the specified amount of times,
@@ -176,13 +181,45 @@ function whatDayIsIt(){
     }
 */
 
+// we should receive different roll every time
+function rollTheDices(int1){
+  let outcome = {
+  sum: 0,
+  rolled: []
+  }
+  for(let n = 0; n < int1; n++){
+    let roll = dice()
+    outcome.sum += roll
+    outcome.rolled.push(roll)
+  }
+  return outcome
+}
+
+// console.log(rollTheDices(3))
+
 /* Ex.9
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */
 
+function howManyDays(date){
+  let today = new Date()
+  let diff = today - date
+  return diff / (1000*3600*24)
+}
+
+// console.log(howManyDays(2021, 6, 23))
+
 /* Ex.10
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
 */
+
+function isTodayMyBirthday(){
+  let today = new Date()
+  let myBD = new Date(2000, 1, 14)
+  return (today.getDay() === myBD.getDay() && today.getMonth() === myBD.getMonth())
+}
+
+// console.log(isTodayMyBirthday())
 
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of this file!
