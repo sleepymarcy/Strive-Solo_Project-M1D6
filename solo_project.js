@@ -64,7 +64,7 @@ me.skills = ["Python", "JavaScript", "C++"]
 
 //2.
 let beGone = me.skills.pop()
-console.log(me)
+// console.log(me)
 
 
 // JS Functions
@@ -72,31 +72,98 @@ console.log(me)
     Write a function called "dice"; it should randomize an integer number between 1 and 6.
 */
 
+function Ex1(){
+  let dice = Math.floor(Math.random()*6) + 1
+  return dice
+}
+
+// console.log(Ex1())
+
+
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
 */
+
+function whoIsBigger(num1, num2){
+  if (num1>num2){
+    return num1
+  }
+  else if (num1 === num2){
+    return "They are equal"
+  }
+  else {
+    return num2
+  }
+}
+
+// console.log(whoIsBigger(42, 1))
+// console.log(whoIsBigger(21, 21))
+// console.log(whoIsBigger(3, 89))
 
 /* Ex.3
     Write a function called "splitMe" which receives a string as a parameter and returns an array with every word in that string.
     Ex. splitMe("I love coding") => returns ["I", "Love", "Coding"]
 */
 
+function splitMe(string){
+  return string.split(" ")
+}
+
+// console.log(splitMe("I love coding"))
+
+// You didn't say anything about capitalizing evry word ;P
+
+
 /* Ex.4
-    Write a function called "deleteOne" which receives a string and a boolean as parameters. If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
+    Write a function called "deleteOne" which receives a string and a boolean as parameters. 
+    If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
+
+function deleteOne(string, boolean){
+  if(boolean === true){
+    return string.slice(1)
+  }
+  else {
+    return string.slice(0, -1)
+  }
+}
+
+// console.log(deleteOne("hello", false))
 
 /* Ex.5
    Write a function called "onlyLetters" which receives a string as a parameter and returns it removing all the digits.
    Ex.: onlyLetters("I have 4 dogs")  => returns "I have  dogs"
 */
 
+function onlyLetters(string){
+  return string.replace(/[0-9]/g, "")
+}
+
+// console.log(onlyLetters("I have 4 dogs"))
+
 /* Ex.6 
    Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
 */
 
+function isThisAnEmail(string){
+  let check = /\S+@\S+\.\S+/
+  return check.test(string)
+}
+
+// console.log(isThisAnEmail("martyna.sowinska@hotmail.com"))
+
 /* Ex.7
    Write a function called "whatDayIsIt" that should return the current day of the week.
 */
+
+function whatDayIsIt(){
+  // const days = ["Sunday", "Monday", "Thursday", "Wendsday", "Tuesday", "Saturday"]
+  let day = new Date()
+  let number = day.getDay()
+  return number()
+}
+
+// console.log(whatDayIsIt())
 
 /* Ex.8
     Write a function called "rollTheDices" which receives a number as a parameter.
